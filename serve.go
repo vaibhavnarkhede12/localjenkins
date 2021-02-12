@@ -1,17 +1,26 @@
-package funding
+package main
 
-import "testing"
+import "fmt"
 
-func BenchmarkFund(b *testing.B) {
-    // Add as many dollars as we have iterations this run
-    fund := NewFund(b.N)
-
-    // Burn through them one at a time until they are all gone
-    for i := 0; i < b.N; i++ {
-        fund.Withdraw(1)
-    }
-
-    if fund.Balance() != 0 {
-        b.Error("Balance wasn't zero:", fund.Balance())
-    }
+type rect struct {
+    width, height int
 }
+
+func (r *rect) area() int {
+    return r.width * r.height
+}
+
+func (r rect) perim() int {
+    return 2*r.width + 2*r.height
+}
+
+func main() {
+    r := rect{width: 10, height: 5}
+
+    fmt.Println("area: ", r.area())
+    fmt.Println("perim:", r.perim())
+
+    rp := &r
+    fmt.Println("area: ", rp.area())
+    fmt.Println("perim:", rp.perim())
+}	
