@@ -17,5 +17,11 @@ pipeline {
         sh 'go build serve.go'
       }
     }
+    
+    stage('deploy') {
+      steps {
+        sh 'go build serve.go'
+      }
+    }
   }
 }
