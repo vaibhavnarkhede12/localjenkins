@@ -12,14 +12,14 @@ pipeline {
         'java'
       ],
       description:'select the deployment language')
-    choice{
+    choice(
       name:'env',
       choices:[
         'dev',
         'prod'
       ],
      description:'chose your environment'
-    }
+    )
   }
   stages {
         
