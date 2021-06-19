@@ -32,7 +32,7 @@ pipeline {
       
     stage('build') {
       steps {
-        sh 'go build serve.go'
+        sh 'go run serve.go'
       }
     }
     
