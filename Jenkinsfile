@@ -25,8 +25,18 @@ pipeline {
         
    
     stage('testversion') {
+      when {
+        allof {
+          not{
+            branch 'master'
+          }
+        }
+      }
       steps {
         sh 'go version'
+        script {
+          pullRequest.comment("this message is from jenkins  - please review the PR ${BUILD_URL}")
+        }
       }
     }  
       
