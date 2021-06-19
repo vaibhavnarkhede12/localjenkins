@@ -26,7 +26,7 @@ pipeline {
    
     stage('testversion') {
       when {
-        allof {
+        allOf {
           not{
             branch 'master'
           }
