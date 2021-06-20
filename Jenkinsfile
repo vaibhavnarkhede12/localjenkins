@@ -34,6 +34,8 @@ pipeline {
       }
       steps {
         sh 'go version'
+        script{
+        }
       }
     }  
       
