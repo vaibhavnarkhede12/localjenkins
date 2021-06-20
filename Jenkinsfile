@@ -35,7 +35,7 @@ pipeline {
       steps {
         sh 'go version'
         script{
-          setGitHubPullRequestStatus.message("message from jenkins")
+          message("message from jenkins")
         }
       }
     }  
