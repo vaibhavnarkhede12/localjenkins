@@ -26,17 +26,16 @@ pipeline {
    
     stage('testversion') {
       when {
-        allOf {
-          not{
-            branch 'master'
-          }
+        expression {
+          BRANCH_NAME != 'master'
         }
       }
       steps {
         sh 'go version'
-        script{
-         setGitHubPullRequestStatus.message("message from jenkins")
-        }
+        echo "displaying testversion stage for brnach ${BRANCH_NAME}"
+//         script{
+//           setGitHubPullRequestStatus.message("message from jenkins")
+//         }
       }
     }  
       
