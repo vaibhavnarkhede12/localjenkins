@@ -32,7 +32,7 @@ pipeline {
       }
       steps {
         sh 'go version'
-        echo "displaying testversion stage for brnach ${BRANCH_NAME}"
+        echo "displaying testversion stage for brnach ${BRANCH_NAME}  - BUILD URL ${BUILD_URL}"
 //         script{
 //           setGitHubPullRequestStatus.message("message from jenkins")
 //         }
@@ -46,7 +46,7 @@ pipeline {
         }
       }
       steps {
-        echo "executing the ${BRANCH_NAME} in BUILD STAGE"
+        echo "executing the ${BRANCH_NAME} in BUILD STAGE - BUILD URL ${BUILD_URL}"
         sh 'go build serve.go'
       }
     }
@@ -58,7 +58,7 @@ pipeline {
         }
       }
       steps {
-        echo "executing the ${BRANCH_NAME} in DEPLOY STAGE"
+        echo "executing the ${BRANCH_NAME} in DEPLOY STAGE  - BUILD URL ${BUILD_URL}"
         sh 'go run serve.go'
       }
     }
