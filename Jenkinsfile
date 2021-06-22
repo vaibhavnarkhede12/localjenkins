@@ -40,13 +40,25 @@ pipeline {
     }  
       
     stage('build') {
+       when {
+        expression {
+          BRANCH_NAME == 'master'
+        }
+      }
       steps {
+        echo "executing the ${BRANCH_NAME} in BUILD STAGE"
         sh 'go build serve.go'
       }
     }
     
     stage('deploy') {
+       when {
+        expression {
+          BRANCH_NAME == 'master'
+        }
+      }
       steps {
+        echo "executing the ${BRANCH_NAME} in DEPLOY STAGE"
         sh 'go run serve.go'
       }
     }
