@@ -25,5 +25,5 @@ func main() {
     fmt.Println("area: ", rp.area())
     fmt.Println("perim:", rp.perim())
     
-    fmt.Println("This is message 1")
+    fmt.Println("This is message 1 demo pipeline example")
 }	
